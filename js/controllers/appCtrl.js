@@ -222,6 +222,27 @@ ngApp.controller('myCtrl', ['$scope', '$timeout', '$http', function ($scope, $ti
         croppingElement.result('blob').then(function (result) {
             var imageFile = new File([result], "newPhoto.png");
             console.log('imageFile', imageFile);
+
+            var fileData = new FormData();
+            fileData.append("file", imageFile);
+
+            // $http.post($scope.rootURL + 'uploadImage', fileData, {
+            //     headers: {
+            //         'Content-Type': undefined
+            //     }
+            // }).success(function (result) {
+            //     console.log('result', result);
+            // }).error(function (error) {
+            //     console.log('error', error);
+            // });
+            $http.post($scope.rootURL + 'uploadImage', fileData, {
+                transformRequest: angular.identity,
+                headers: {
+                    'Content-Type': undefined
+                }
+            }).then(function (result) {
+                console.log('result', result);
+            });
         });
         croppingElement.destroy();
         $('#profilePhotoUploader').val(null);
