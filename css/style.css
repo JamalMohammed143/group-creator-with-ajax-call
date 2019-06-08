@@ -56,11 +56,17 @@ body {
 /* ========= */
 .main-container {
     height: 100%;
+    overflow: auto;
 }
 
-.main-container>div[class*=col] {
+.page-container,
+.page-container>.row {
+    height: 100%;
+}
+
+.page-container>.row>div[class*=col] {
     padding: 10px;
-    max-height: 100%;
+    height: 100%;
 }
 
 .current-members-list {
@@ -329,7 +335,7 @@ body {
 
 .box-view>.row {
     margin: 0;
-    padding: 10px 5px 0;
+    padding: 10px 5px;
 }
 
 .box-view>.row>div[class*="col"] {

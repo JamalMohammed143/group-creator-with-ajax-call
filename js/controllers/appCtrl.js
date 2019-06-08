@@ -133,6 +133,8 @@ ngApp.controller('myCtrl', ['$scope', '$timeout', '$http', function ($scope, $ti
         if (fromList == "clearAll") {
             postData.status = "all";
             $scope.selMembersList = angular.copy($scope.allMembersList);
+            $scope.unSelMembersList = [];
+            $scope.memrsListViewOpenIs = false;
         }
         $http({
             method: 'POST',
@@ -295,6 +297,8 @@ ngApp.controller('myCtrl', ['$scope', '$timeout', '$http', function ($scope, $ti
         $('#croppingContainer, #croppedImageViewer').hide();
         $('#photoUploadingLabel').show();
     });
+    // goMembersListPage
+    $scope.goMembersListPage = function () {};
 
     $timeout(function () {
         $scope.mainLoaderIs = false;
