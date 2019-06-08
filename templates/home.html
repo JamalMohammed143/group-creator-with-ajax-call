@@ -1,0 +1,102 @@
+<div class="row no-gutters" ng-init="reloadFun('onload')">
+    <div class="col">
+        <div class="current-members-list">
+            <div class="details-nav">
+                Total: <strong ng-bind="selMembersList.length"></strong>
+                <button class="btn btn-sm btn-secondary clear-btn"
+                    ng-click="removeFromSelList('clearAll')">Clear</button>
+            </div>
+            <div class="member-chip-list">
+                <ul>
+                    <li ng-repeat="cmList in selMembersList | orderBy : 'name' track by $index">
+                        <span class="icon">
+                            <img ng-src="{{cmList.image}}" alt="Photo" ng-if="cmList.image" />
+                            <img ng-src="{{cmList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}" alt="Photo"
+                                ng-if="!cmList.image" />
+                        </span>
+                        <span class="name" ng-bind="cmList.name || '--'"></span>
+                        <button ng-click="removeFromSelList('selList', cmList)" ng-if="memrsListViewOpenIs"><i
+                                class="fas fa-angle-double-right"></i></button>
+                    </li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn-dark member-adding-btn" ng-click="addMembersFromAll()">
+                <span ng-bind="memrsListViewOpenIs ? 'Close' : 'Add Member'"></span>
+                <i class="fas fa-arrow-right" ng-class="{'open':memrsListViewOpenIs}"></i>
+            </button>
+        </div>
+        <div class="all-member-list" ng-class="{'open':memrsListViewOpenIs}">
+            <div class="details-nav">
+                Total: <strong ng-bind="unSelMembersList.length"></strong>
+            </div>
+            <div class="member-chip-list">
+                <ul>
+                    <li ng-repeat="cmList in unSelMembersList | orderBy : 'name' track by $index">
+                        <button ng-click="removeFromSelList('allList', cmList)" ng-if="memrsListViewOpenIs"><i
+                                class="fas fa-angle-double-left"></i></button>
+                        <span class="name" ng-bind="cmList.name || '--'"></span>
+                        <span class="icon">
+                            <img ng-src="{{cmList.image}}" alt="Photo" ng-if="cmList.image" />
+                            <img ng-src="{{cmList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}" alt="Photo"
+                                ng-if="!cmList.image" />
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-9 overflow-auto">
+        <div class="card">
+            <div class="groups-input-form">
+                <form class="form-inline" ng-submit="reloadFun('onclick')">
+                    <div class="form-group mr-3">
+                        <label>No. of Groups:</label>
+                        <input type="number" class="form-control mx-sm-3" ng-model="groupsCount" />
+                    </div>
+                    <div class="form-group">
+                        <label>No. of Members:</label>
+                        <input type="number" class="form-control mx-sm-3" ng-model="membersCount" />
+                        <button type="submit" class="btn btn-primary">Re-Create</button>
+                    </div>
+                </form>
+                <div class="">
+                    <button type="button" class="btn btn-secondary total-count-btn" data-toggle="modal"
+                        data-target="#membersListModal">Total <span ng-bind="allMembersList.length"
+                            class="total-count"></span></button>
+
+                    <button type="button" class="btn btn-secondary mr-3" ng-click="editAndAddEmp('add')">+
+                        Add</button>
+                </div>
+            </div>
+
+            <div class="box-view">
+                <div class="row justify-content-center">
+                    <div class="col-sm-3" ng-repeat="memList in createdGroupList track by $index">
+                        <div class="card">
+                            <h5 ng-bind="'Group ' + ($index+1)"></h5>
+                            <!-- <ul class="member-list">
+                                <li ng-repeat="grp in memList | orderBy : 'name' track by $index">
+                                    <span class="name" ng-bind="grp.name || '--'"></span>
+                                </li>
+                            </ul> -->
+                            <div class="member-chip-list">
+                                <ul>
+                                    <li ng-repeat="cmList in memList | orderBy : 'name' track by $index">
+                                        <span class="icon">
+                                            <img ng-src="{{cmList.image}}" alt="Photo" ng-if="cmList.image" />
+                                            <img ng-src="{{cmList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}"
+                                                alt="Photo" ng-if="!cmList.image" />
+                                        </span>
+                                        <span class="name" ng-bind="cmList.name || '--'"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4 class="text-center text-danger" ng-if="createdGroupList.length == 0">Error</h4>
+        </div>
+    </div>
+</div>

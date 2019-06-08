@@ -81,6 +81,13 @@ body {
     font-size: 16px;
     text-align: center;
     padding: 5px;
+    position: relative;
+}
+
+.details-nav .clear-btn {
+    position: absolute;
+    right: 5px;
+    top: 4px;
 }
 
 .member-chip-list {
@@ -322,10 +329,10 @@ body {
 
 .box-view>.row {
     margin: 0;
-    padding: 15px 0;
+    padding: 10px 5px 0;
 }
 
-.box-view>.row>.col-6 {
+.box-view>.row>div[class*="col"] {
     padding: 0 5px 10px;
 }
 
