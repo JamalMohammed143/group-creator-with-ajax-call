@@ -1,3 +1,4 @@
+<h1 class="page-title">Groups</h1>
 <div class="page-container">
     <div class="row no-gutters" ng-init="reloadFun('onload')">
         <div class="col">
@@ -45,6 +46,7 @@
                     </ul>
                 </div>
             </div>
+            <div class="backdrop" ng-if="memrsListViewOpenIs" ng-click="addMembersFromAll()"></div>
         </div>
 
         <div class="col-9 overflow-auto">

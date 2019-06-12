@@ -1,6 +1,48 @@
-<button type="button" class="btn btn-secondary mr-3" ng-click="editAndAddEmp('add')">+
-    Add</button>
-
+<h1 class="page-title">All Members</h1>
+<div class="page-container">
+    <div class="">
+        <div class="details-nav row no-gutters">
+            <div class="col-auto">
+                <button type="button" class="btn icon-btn mr-3" ng-click="goBackFun()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            <div class="col text-right">
+                <input type="text" class="form-control" ng-model="searchObj.name" id="nameSearch"
+                    placeholder="Search by name" />
+            </div>
+            <div class="col-auto offset-2">
+                <button type="button" class="btn btn-secondary ml-3 mr-3" ng-click="editAndAddEmp('add')">+ Add</button>
+            </div>
+            <div class="col-auto text-left">
+                Total: <strong ng-bind="allMembersList.length"></strong>
+            </div>
+        </div>
+        <div class="mem-card-list">
+            <div class="row no-gutters">
+                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-6"
+                    ng-repeat="memList in allMembersList | filter : searchObj | orderBy : 'empId' track by $index">
+                    <div class="card emp-card-ui" ng-class="{'female': memList.gender == 'female'}">
+                        <span class="emp-id" ng-bind="memList.empId"></span>
+                        <div class="card-img">
+                            <img ng-src="{{memList.image}}" alt="Photo" ng-if="memList.image" />
+                            <img ng-src="{{memList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}" alt="Photo"
+                                ng-if="!memList.image" />
+                        </div>
+                        <h5 class="card-title" ng-bind="memList.name" title="{{memList.name}}"></h5>
+                        <p class="department" ng-bind="memList.department"></p>
+                        <button class="btn action-btn" ng-click="editAndAddEmp(memList)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn action-btn delete" ng-click="deleteEmp(memList.id)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="memberAddModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -81,56 +123,5 @@
                 <button type="button" class="btn btn-success capture-btn" ng-click="getCroppedImage()">OK</button>
             </div>
         </form>
-    </div>
-</div>
-
-<div class="modal fade" id="membersListModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">All Members</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body p-0">
-                <div class="details-nav row no-gutters">
-                    <div class="col text-left">
-                        Total: <strong ng-bind="allMembersList.length"></strong>
-                    </div>
-                    <div class="col text-right">
-                        <input type="text" class="form-control" ng-model="searchObj.name" id="nameSearch"
-                            placeholder="Search by name" />
-                    </div>
-                </div>
-                <div class="mem-card-list">
-                    <div class="row no-gutters">
-                        <div class="col-3"
-                            ng-repeat="memList in allMembersList | filter : searchObj | orderBy : 'empId' track by $index">
-                            <div class="card emp-card-ui" ng-class="{'female': memList.gender == 'female'}">
-                                <span class="emp-id" ng-bind="memList.empId"></span>
-                                <div class="card-img">
-                                    <img ng-src="{{memList.image}}" alt="Photo" ng-if="memList.image" />
-                                    <img ng-src="{{memList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}"
-                                        alt="Photo" ng-if="!memList.image" />
-                                </div>
-                                <h5 class="card-title" ng-bind="memList.name" title="{{memList.name}}"></h5>
-                                <p class="department" ng-bind="memList.department"></p>
-                                <button class="btn action-btn" ng-click="editAndAddEmp(memList)">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn action-btn delete" ng-click="deleteEmp(memList.id)">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <!-- <button type="submit" class="btn btn-primary">Update</button> -->
-            </div>
-        </div>
     </div>
 </div>

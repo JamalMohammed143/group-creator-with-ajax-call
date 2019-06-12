@@ -44,6 +44,16 @@ body {
     border-radius: 10px;
 }
 
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
 /*  */
 .my-navbar .navbar-brand {
     padding: 0;
@@ -69,6 +79,21 @@ body {
     height: 100%;
 }
 
+.page-title {
+    color: #fff;
+    text-align: center;
+    font-size: 22px;
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+.icon-btn {
+    font-size: 18px;
+}
+
 .current-members-list {
     background-color: #fff;
     box-shadow: 0 0 5px #000;
@@ -78,7 +103,7 @@ body {
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    z-index: 2;
+    z-index: 3;
 }
 
 .details-nav {
@@ -190,7 +215,7 @@ body {
     overflow: hidden;
     margin-left: -260px;
     transition: all 0.3s ease-in-out;
-    z-index: 1;
+    z-index: 2;
 }
 
 .all-member-list.open {
@@ -515,6 +540,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+@media (min-width: 1200px) {
+    .mem-card-list {
+        max-width: 1200px;
+        margin: 20px auto 0;
+    }
 }
 
 @media (max-width: 768px) {
