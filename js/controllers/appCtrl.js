@@ -1,4 +1,4 @@
-ngApp.controller('myCtrl', ['$scope', '$timeout', '$http', '$location', '$state', '$window', function ($scope, $timeout, $http, $location, $state, $window) {
+ngApp.controller('myCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$location', '$state', '$window', function ($scope, $rootScope, $timeout, $http, $location, $state, $window) {
     //$scope.rootURL = "http://localhost:8000/crud/";
     $scope.rootURL = "http://192.168.1.135:8000/crud/";
     $scope.imageURL = "http://192.168.1.135/myFirstNodeJs/uploads/";
@@ -43,7 +43,6 @@ ngApp.controller('myCtrl', ['$scope', '$timeout', '$http', '$location', '$state'
 
     $scope.reloadFun = function (params) {
         if (params == 'onload') {
-            $scope.mainLoaderIs = true;
             $scope.createdGroupList = [];
             $scope.checkRandomNo = [];
             $scope.membersInGroup = [];
@@ -72,7 +71,6 @@ ngApp.controller('myCtrl', ['$scope', '$timeout', '$http', '$location', '$state'
                 } else {
                     alert('Error :' + response.data.message);
                 }
-                $scope.mainLoaderIs = false;
             });
         } else {
             $scope.createdGroupList = [];
@@ -109,7 +107,6 @@ ngApp.controller('myCtrl', ['$scope', '$timeout', '$http', '$location', '$state'
     };
 
     $scope.removeFromSelList = function (fromList, getIndexObj) {
-        //$scope.mainLoaderIs = true;
         var postData = {
             "status": 0,
             "emp_id": 0
@@ -146,7 +143,6 @@ ngApp.controller('myCtrl', ['$scope', '$timeout', '$http', '$location', '$state'
             } else {
                 alert('Error :' + response.data.message);
             }
-            //$scope.mainLoaderIs = false;
         });
     };
 

@@ -1,42 +1,45 @@
 <h1 class="page-title">All Members</h1>
 <div class="page-container">
-    <div class="">
+    <div class="emp-list-sec">
         <div class="details-nav row no-gutters">
-            <div class="col-auto">
+            <div class="col-2 text-left">
                 <button type="button" class="btn icon-btn mr-3" ng-click="goBackFun()">
                     <i class="fas fa-chevron-left"></i>
                 </button>
             </div>
-            <div class="col text-right">
-                <input type="text" class="form-control" ng-model="searchObj.name" id="nameSearch"
+            <div class="col text-center">
+                <input type="text" class="form-control search-input" ng-model="searchObj.name" id="nameSearch"
                     placeholder="Search by name" />
             </div>
-            <div class="col-auto offset-2">
-                <button type="button" class="btn btn-secondary ml-3 mr-3" ng-click="editAndAddEmp('add')">+ Add</button>
-            </div>
-            <div class="col-auto text-left">
-                Total: <strong ng-bind="allMembersList.length"></strong>
+            <div class="col-2">
+                <div class="total-view-area">
+                    <p>Total: <strong ng-bind="allMembersList.length"></strong></p>
+                    <button type="button" class="btn btn-secondary" ng-click="editAndAddEmp('add')">
+                        <i class="fas fa-plus fa-spin"></i> Add</button>
+                </div>
             </div>
         </div>
-        <div class="mem-card-list">
-            <div class="row no-gutters">
-                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-6"
-                    ng-repeat="memList in allMembersList | filter : searchObj | orderBy : 'empId' track by $index">
-                    <div class="card emp-card-ui" ng-class="{'female': memList.gender == 'female'}">
-                        <span class="emp-id" ng-bind="memList.empId"></span>
-                        <div class="card-img">
-                            <img ng-src="{{memList.image}}" alt="Photo" ng-if="memList.image" />
-                            <img ng-src="{{memList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}" alt="Photo"
-                                ng-if="!memList.image" />
+        <div class="emp-list-inner">
+            <div class="mem-card-list">
+                <div class="row no-gutters">
+                    <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-6"
+                        ng-repeat="memList in allMembersList | filter : searchObj | orderBy : 'empId' track by $index">
+                        <div class="card emp-card-ui" ng-class="{'female': memList.gender == 'female'}">
+                            <span class="emp-id" ng-bind="memList.empId"></span>
+                            <div class="card-img fa-spin">
+                                <img ng-src="{{memList.image}}" alt="Photo" ng-if="memList.image" />
+                                <img ng-src="{{memList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}"
+                                    alt="Photo" ng-if="!memList.image" />
+                            </div>
+                            <h5 class="card-title" ng-bind="memList.name" title="{{memList.name}}"></h5>
+                            <p class="department" ng-bind="memList.department"></p>
+                            <button class="btn action-btn" ng-click="editAndAddEmp(memList)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn action-btn delete" ng-click="deleteEmp(memList.id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
                         </div>
-                        <h5 class="card-title" ng-bind="memList.name" title="{{memList.name}}"></h5>
-                        <p class="department" ng-bind="memList.department"></p>
-                        <button class="btn action-btn" ng-click="editAndAddEmp(memList)">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn action-btn delete" ng-click="deleteEmp(memList.id)">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -59,14 +62,14 @@
                         <div class="form-group">
                             <label for="Name">Name:</label>
                             <input type="text" class="form-control" id="Name" ng-model="membersObj.name"
-                                placeholder="Enter your full name" required />
+                                placeholder="Enter your full name" />
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
                             <label for="empId">Employee Id:</label>
                             <input type="number" class="form-control" id="empId" ng-model="membersObj.empId"
-                                placeholder="Enter emp id" required />
+                                placeholder="Enter emp id" />
                         </div>
                     </div>
                 </div>
@@ -74,10 +77,11 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label for="department">Department:</label>
-                            <select class="form-control" id="department" ng-model="membersObj.department" required>
+                            <select class="form-control" id="department" ng-model="membersObj.department">
                                 <option value="" selected disabled>Select Department</option>
                                 <option value="UI">UI</option>
                                 <option value="UX">UX</option>
+                                <option value="QA">QA</option>
                                 <option value="INT">INT</option>
                                 <option value="Backend">Backend</option>
                                 <option value="Dev Ops">Dev Ops</option>
@@ -102,7 +106,7 @@
                                 <i class="fas fa-camera"></i>
                             </label>
                             <input type="file" id="profilePhotoUploader" accept="image/*"
-                                onchange="angular.element(this).scope().imageUplading(this)" />
+                                onchange="angular.element(this).scope().imageUploading(this)" />
                             <div class="cropped-image-view" id="croppedImageViewer" style="display: none;">
                                 <button type="button" class="btn cancel-all-btn" ng-click="cancelAll()"><i
                                         class="fas fa-times"></i></button>

@@ -154,7 +154,7 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    padding-left: 3px;
+    padding-left: 5px;
 }
 
 .member-chip-list>ul>li .icon {
@@ -262,6 +262,65 @@ body {
     padding: 8px 15px;
 }
 
+.search-input {
+    border-width: 2px;
+    border-color: #b9b9b9;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+    border-radius: 0;
+    display: inline-block;
+    width: 30%;
+    height: 40px;
+    transition: all .3s linear;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.search-input:focus {
+    width: 100%;
+}
+
+.search-input::placeholder {
+    color: #ccc;
+    font-weight: 300;
+}
+
+.search-input:-ms-input-placeholder {
+    color: #ccc;
+    font-weight: 300;
+}
+
+.search-input::-ms-input-placeholder {
+    color: #ccc;
+    font-weight: 300;
+}
+
+.total-view-area {
+    text-align: right;
+}
+
+.total-view-area p {
+    display: inline-block;
+    margin: 0 12px 0 0;
+    vertical-align: middle;
+}
+
+.total-view-area p strong {
+    font-size: 18px;
+}
+
+.emp-list-sec {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.emp-list-inner {
+    max-height: 100%;
+    overflow: auto;
+}
+
 .mem-card-list {
     padding: 8px;
 }
@@ -290,6 +349,10 @@ body {
     height: 80px;
     margin: 20px auto;
     padding: 5px;
+}
+
+.emp-card-ui:hover .card-img {
+    animation: none;
 }
 
 .emp-card-ui .card-img img {
