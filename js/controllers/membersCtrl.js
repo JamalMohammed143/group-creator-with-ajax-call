@@ -1,8 +1,8 @@
 ngApp.controller('membersCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$location', '$state', '$window', function ($scope, $rootScope, $timeout, $http, $location, $state, $window) {
     //$scope.rootURL = "http://localhost:8000/crud/";
     $scope.rootURL = "http://192.168.1.135:8000/crud/";
-    $scope.imageURL = "http://192.168.1.135/myFirstNodeJs/uploads/";
-    //$rootScope.separateLoaderIs = false;
+    $scope.imageURL = "http://192.168.1.135/group-creator-backend/uploads/";
+    $rootScope.separateLoaderIs = false;
     $scope.allMembersList = [];
     $scope.updateEmpDetailIs = false;
     $scope.imageFileObj = {};
@@ -122,13 +122,12 @@ ngApp.controller('membersCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$
         } else {
             alert("Fill the all info...");
         }
-
     };
 
     $scope.profileImageUploading = function (emp_id, alertMsg) {
         if ($scope.imageFileObj.type != "" && $scope.imageFileObj.type != undefined) {
-            var createFileName = $scope.membersObj.name.split(" ");
-            var fileName = createFileName.join("_") + ".png";
+            //var createFileName = $scope.membersObj.name.split(" ");
+            var fileName = "profile_image_" + emp_id + ".png";
             var imageFile = new File([$scope.imageFileObj], fileName);
             var formData = new FormData();
             formData.append('File', imageFile);
@@ -141,8 +140,11 @@ ngApp.controller('membersCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$
                 async: false,
             }).then(function (response) {
                 if (response.data.success) {
-                    $scope.getAllEmpList();
                     alert(alertMsg);
+                    $scope.allMembersList = [];
+                    $timeout(function () {
+                        $scope.getAllEmpList();
+                    }, 500);
                     $('#memberAddModal').modal('hide');
                 } else {
                     alert(response.data.message);
@@ -153,8 +155,8 @@ ngApp.controller('membersCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$
                 console.log('error', error);
             });
         } else {
-            $scope.getAllEmpList();
             alert(alertMsg);
+            $scope.getAllEmpList();
             $('#memberAddModal').modal('hide');
         }
     };

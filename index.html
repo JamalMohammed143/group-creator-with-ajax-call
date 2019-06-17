@@ -44,20 +44,18 @@
 </head>
 
 <body ng-controller="myCtrl">
-    <div class="page-loader" ng-if="mainLoaderIs">
-        <img src="img/pageLoader.gif" alt="Loader" />
-    </div>
     <div class="page-loader separate-loader" ng-if="separateLoaderIs">
         <img src="img/separateLoader.gif" alt="Loader" />
+    </div>
+    <div class="page-loader" ng-if="mainLoaderIs">
+        <img src="img/pageLoader.gif" alt="Loader" />
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark my-navbar">
         <a class="navbar-brand" href="#" title="Logo">
-            <img src="img/logo.png" alt="Jamal" />
-            Group Divider
-        </a>
+            <img src="img/logo.png" alt="Jamal" /> Group Divider</a>
     </nav>
-    
+
     <div class="main-container" ui-view></div>
 
     <script type="text/javascript" src="plugins/bootstrap-4.3.1/js/jquery-3.3.1.min.js"></script>

@@ -1,22 +1,26 @@
+:root {
+    --primary: #008498;
+}
+
 .navbar-dark {
-    background-color: #025f6d;
+    background-color: var(--primary);
 }
 
 .btn-primary {
-    background-color: #025f6d;
-    border-color: #025f6d;
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-primary:not(:disabled):not(.disabled).active,
 .btn-primary:not(:disabled):not(.disabled):active,
 .show>.btn-primary.dropdown-toggle,
 .btn-primary:hover {
-    background-color: #008498;
-    border-color: #008498;
+    background-color: #025f6d;
+    border-color: #025f6d;
 }
 
 .modal-header {
-    background-color: #025f6d;
+    background-color: var(--primary);
     color: #ffffff;
 }
 

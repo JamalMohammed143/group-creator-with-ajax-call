@@ -51,7 +51,7 @@
     <div class="modal-dialog" role="document">
         <form class="modal-content" ng-submit="addAndUpdateEmp()">
             <div class="modal-header">
-                <h5 class="modal-title">Add Members</h5>
+                <h5 class="modal-title">Add Member</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -79,12 +79,13 @@
                             <label for="department">Department:</label>
                             <select class="form-control" id="department" ng-model="membersObj.department">
                                 <option value="" selected disabled>Select Department</option>
-                                <option value="UI">UI</option>
                                 <option value="UX">UX</option>
-                                <option value="QA">QA</option>
+                                <option value="UI">UI</option>
                                 <option value="INT">INT</option>
                                 <option value="Backend">Backend</option>
+                                <option value="QA">QA</option>
                                 <option value="Dev Ops">Dev Ops</option>
+                                <option value="HR">HR</option>
                             </select>
                         </div>
                         <div class="gender-selector">
