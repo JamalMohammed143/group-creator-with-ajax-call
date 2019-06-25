@@ -172,7 +172,7 @@ ngApp.controller('membersCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$
             $('#memberAddModal').modal('show');
         } else {
             if (params.image != "") {
-                $('#croppedImageViewer img').attr('src', params.image);
+                $('#croppedImageViewer img').attr('src', params.imageFullPath);
                 $('#croppingContainer, #photoUploadingLabel').hide();
                 $('#croppedImageViewer').show();
             }

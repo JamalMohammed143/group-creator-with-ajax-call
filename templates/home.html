@@ -5,8 +5,8 @@
             <div class="current-members-list">
                 <div class="details-nav">
                     Total: <strong ng-bind="selMembersList.length"></strong>
-                    <button class="btn btn-sm btn-secondary clear-btn"
-                        ng-click="removeFromSelList('clearAll')">Clear</button>
+                    <button class="btn btn-sm btn-secondary clear-btn" ng-click="removeFromSelList('clearAll')"
+                        ng-if="unSelMembersList.length > 0">Clear</button>
                 </div>
                 <div class="member-chip-list">
                     <ul>
