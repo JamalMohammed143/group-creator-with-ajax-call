@@ -122,7 +122,7 @@ body {
 }
 
 .member-chip-list {
-    max-height: 100%;
+    height: 100%;
     width: 100%;
     overflow: auto;
     padding-right: 10px;
@@ -342,6 +342,7 @@ body {
 }
 
 .emp-card-ui .card-img {
+    animation-duration: 10s;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -492,6 +493,7 @@ body {
 
 .gender-box label {
     background-color: #d4d4d4;
+    border: 3px solid transparent;
     border-radius: 50%;
     cursor: pointer;
     display: inline-block;
@@ -503,6 +505,11 @@ body {
 
 .gender-box input[type=radio]:checked+label {
     filter: grayscale(0);
+    border-color: #007bff;
+}
+
+.gender-box input[type=radio]:checked+label[for=femaleId] {
+    border-color: #e83e8c;
 }
 
 .gender-box label img {

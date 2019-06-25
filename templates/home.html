@@ -12,9 +12,9 @@
                     <ul>
                         <li ng-repeat="cmList in selMembersList | orderBy : 'name' track by $index">
                             <span class="icon">
-                                <img ng-src="{{cmList.image}}" alt="Photo" ng-if="cmList.image" />
+                                <img ng-src="{{cmList.imageFullPath}}" alt="Photo" ng-if="cmList.imageFullPath" />
                                 <img ng-src="{{cmList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}"
-                                    alt="Photo" ng-if="!cmList.image" />
+                                    alt="Photo" ng-if="!cmList.imageFullPath" />
                             </span>
                             <span class="name" ng-bind="cmList.name || '--'"></span>
                             <button ng-click="removeFromSelList('selList', cmList)" ng-if="memrsListViewOpenIs"><i
@@ -38,9 +38,9 @@
                                     class="fas fa-angle-double-left"></i></button>
                             <span class="name" ng-bind="cmList.name || '--'"></span>
                             <span class="icon">
-                                <img ng-src="{{cmList.image}}" alt="Photo" ng-if="cmList.image" />
+                                <img ng-src="{{cmList.imageFullPath}}" alt="Photo" ng-if="cmList.imageFullPath" />
                                 <img ng-src="{{cmList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}"
-                                    alt="Photo" ng-if="!cmList.image" />
+                                    alt="Photo" ng-if="!cmList.imageFullPath" />
                             </span>
                         </li>
                     </ul>
@@ -84,9 +84,10 @@
                                     <ul>
                                         <li ng-repeat="cmList in memList | orderBy : 'name' track by $index">
                                             <span class="icon">
-                                                <img ng-src="{{cmList.image}}" alt="Photo" ng-if="cmList.image" />
+                                                <img ng-src="{{cmList.imageFullPath}}" alt="Photo"
+                                                    ng-if="cmList.imageFullPath" />
                                                 <img ng-src="{{cmList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}"
-                                                    alt="Photo" ng-if="!cmList.image" />
+                                                    alt="Photo" ng-if="!cmList.imageFullPath" />
                                             </span>
                                             <span class="name" ng-bind="cmList.name || '--'"></span>
                                         </li>

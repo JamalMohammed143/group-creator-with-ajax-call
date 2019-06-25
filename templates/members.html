@@ -15,7 +15,7 @@
                 <div class="total-view-area">
                     <p>Total: <strong ng-bind="allMembersList.length"></strong></p>
                     <button type="button" class="btn btn-secondary" ng-click="editAndAddEmp('add')">
-                        <i class="fas fa-plus fa-spin"></i> Add</button>
+                        <i class="fas fa-plus"></i> Add</button>
                 </div>
             </div>
         </div>
@@ -27,9 +27,9 @@
                         <div class="card emp-card-ui" ng-class="{'female': memList.gender == 'female'}">
                             <span class="emp-id" ng-bind="memList.empId"></span>
                             <div class="card-img fa-spin">
-                                <img ng-src="{{memList.image}}" alt="Photo" ng-if="memList.image" />
+                                <img ng-src="{{memList.imageFullPath}}" alt="Photo" ng-if="memList.imageFullPath" />
                                 <img ng-src="{{memList.gender == 'male' ? 'img/male.png' : 'img/female.png'}}"
-                                    alt="Photo" ng-if="!memList.image" />
+                                    alt="Photo" ng-if="!memList.imageFullPath" />
                             </div>
                             <h5 class="card-title" ng-bind="memList.name" title="{{memList.name}}"></h5>
                             <p class="department" ng-bind="memList.department"></p>

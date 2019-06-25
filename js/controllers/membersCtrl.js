@@ -28,8 +28,8 @@ ngApp.controller('membersCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$
             if (response.data.success) {
                 var dataList = response.data.data;
                 for (let l = 0; l < dataList.length; l++) {
-                    if (dataList[l].image != "") {
-                        dataList[l].image = $scope.imageURL + dataList[l].image;
+                    if (dataList[l].image != "" && dataList[l].image != undefined) {
+                        dataList[l].imageFullPath = $scope.imageURL + dataList[l].image;
                     }
                     $scope.allMembersList.push(dataList[l]);
                 }
