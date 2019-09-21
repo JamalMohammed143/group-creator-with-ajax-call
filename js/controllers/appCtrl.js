@@ -154,4 +154,114 @@ ngApp.controller('myCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$locat
     $timeout(function () {
         $scope.mainLoaderIs = false;
     }, 1000);
+
+
+
+    /*Creating IndexedDB*/
+    /* var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+    var IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction || {
+        READ_WRITE: "readwrite"
+    };
+    var IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+    if (!indexedDB) {
+        var msg = "Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.";
+        alert(msg);
+    } else {
+        //console.log("DB created");
+    }
+    //Get Unique ID
+    $scope.getUniqueNo = function () {
+        var uniqueId = new Date().getTime();
+        return uniqueId;
+    } */
+
+
+    //var db, request;
+    /* $scope.db = {};
+    $scope.request = {};
+    $scope.all_list_table = 'allList';
+    $scope.group_list_table = 'groupList';
+    var dataTables = [{
+        "tableName": 'allList',
+        "keyPath": 'id'
+    }, {
+        "tableName": 'groupList',
+        "keyPath": 'id'
+    }]; */
+    /*DB Creation*/
+    /* $scope.dbCreation = function () {
+        $scope.request = indexedDB.open('groupMakerDB', 8);
+        $scope.request.onerror = function (event) {
+            // Handle errors.
+        };
+        $scope.request.onupgradeneeded = function (event) {
+            $scope.db = event.target.result;
+            for (var d = 0; d < dataTables.length; d++) {
+                if (!$scope.db.objectStoreNames.contains(dataTables[d].tableName)) {
+                    var dataStorage = event.currentTarget.result.createObjectStore(dataTables[d].tableName, {
+                        keyPath: dataTables[d].keyPath,
+                        autoIncrement: true
+                    });
+                }
+            }
+        };
+        $scope.request.onsuccess = function (evt) {
+            $scope.db = this.result;
+        };
+    }
+    $scope.dbCreation(); */
+    /*Changes End*/
+
+
+    /* $scope.addListFun = function () {
+        var storeList = [{
+            "name": "Jamal Mohammed",
+            "age": "25",
+            "team": "UI"
+        }, {
+            "name": "Mohammed",
+            "age": "25",
+            "team": "UX"
+        }, {
+            "name": "Mahesh",
+            "age": "25",
+            "team": "BE"
+        }];
+        var get_db_request = $scope.db.transaction([$scope.all_list_table], "readwrite").objectStore($scope.all_list_table);
+
+        for (var n = 0; n < storeList.length; n++) {
+            var obj = storeList[n];
+
+            var id_length = 8,
+                crnt_date = new Date();
+            var id_timestamp = crnt_date.getDate() + "" + crnt_date.getMonth() + "" + crnt_date.getFullYear() + "" + crnt_date.getHours() + "" + crnt_date.getMinutes() + "" + crnt_date.getSeconds();
+
+            var get_random_int = function (min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            var index = get_random_int(0, (id_length - 1));
+
+            var uniqe_id = id_timestamp + index + obj.name;
+
+            console.log("uniqe_id", uniqe_id);
+
+            obj.id = uniqe_id;
+            var addingList = get_db_request.add(obj);
+
+            addingList.onsuccess = function (event) {
+                console.log("addingList", addingList);
+            };
+        }
+    };
+
+    $scope.getFun = function () {
+        var get_db_request = $scope.db.transaction([$scope.all_list_table], "readwrite").objectStore($scope.all_list_table);
+
+        var get_parti_list = get_db_request.get("Jamal Mohammed");
+        get_parti_list.onsuccess = function (event) {
+            console.log("get_parti_list", get_parti_list.result);
+        };
+    }; */
+
 }]);

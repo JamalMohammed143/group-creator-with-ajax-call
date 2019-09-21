@@ -1,8 +1,9 @@
 <h1 class="page-title">Groups</h1>
 <div class="page-container">
-    <div class="row no-gutters" ng-init="reloadFun('onload')">
+    <!--  -->
+    <div class="row no-gutters">
         <div class="col">
-            <div class="current-members-list">
+            <div class="current-members-list" ng-init="reloadFun('onload')">
                 <div class="details-nav">
                     Total: <strong ng-bind="selMembersList.length"></strong>
                     <button class="btn btn-sm btn-secondary clear-btn" ng-click="removeFromSelList('clearAll')"
@@ -61,6 +62,9 @@
                             <label>No. of Members:</label>
                             <input type="number" class="form-control mx-sm-3" ng-model="membersCount" />
                             <button type="submit" class="btn btn-primary">Re-Create</button>
+
+                            <!-- <button type="button" class="btn btn-info" ng-click="addListFun()">ADD LIST</button>
+                            <button type="button" class="btn btn-info" ng-click="getFun()">GET</button> -->
                         </div>
                     </form>
                     <div class="">
