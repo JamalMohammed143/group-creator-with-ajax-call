@@ -88,6 +88,7 @@ body {
     top: 12px;
     left: 50%;
     transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     margin: 0;
 }
 
@@ -178,6 +179,12 @@ body {
     width: 30px;
     height: 30px;
     font-size: 14px;
+    outline: none;
+}
+
+.member-chip-list>ul>li button:active {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
 }
 
 .member-adding-btn {
@@ -216,6 +223,7 @@ body {
     overflow: hidden;
     margin-left: -260px;
     transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
     z-index: 2;
 }
 
@@ -255,6 +263,7 @@ body {
     right: 5px;
     top: 50%;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 
 /* mem card list open*/
@@ -272,6 +281,7 @@ body {
     width: 30%;
     height: 40px;
     transition: all .3s linear;
+    -webkit-transition: all .3s linear;
     text-align: center;
     font-size: 18px;
     font-weight: 600;
@@ -336,6 +346,7 @@ body {
     cursor: pointer;
     text-align: center;
     transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
 }
 
 .emp-card-ui:hover {
@@ -344,6 +355,7 @@ body {
 
 .emp-card-ui .card-img {
     animation-duration: 10s;
+    -webkit-animation-duration: 10s;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -355,6 +367,7 @@ body {
 
 .emp-card-ui:hover .card-img {
     animation: none;
+    -webkit-animation: none;
 }
 
 .emp-card-ui .card-img img {
@@ -404,6 +417,7 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
 }
 
 .action-btn.delete {

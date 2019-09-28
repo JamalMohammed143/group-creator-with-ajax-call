@@ -23,8 +23,8 @@
                         </li>
                     </ul>
                 </div>
-                <button type="button" class="btn btn-dark member-adding-btn" ng-click="addMembersFromAll()">
-                    <span ng-bind="memrsListViewOpenIs ? 'Close' : 'Add Member'"></span>
+                <button type="button" class="btn btn-dark member-adding-btn" ng-click="prevListToggleNav()">
+                    <span ng-bind="memrsListViewOpenIs ? 'Close' : 'View Previous List'"></span>
                     <i class="fas fa-arrow-right" ng-class="{'open':memrsListViewOpenIs}"></i>
                 </button>
             </div>
@@ -47,7 +47,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="backdrop" ng-if="memrsListViewOpenIs" ng-click="addMembersFromAll()"></div>
+            <div class="backdrop" ng-if="memrsListViewOpenIs" ng-click="prevListToggleNav()"></div>
         </div>
 
         <div class="col-9 overflow-auto">

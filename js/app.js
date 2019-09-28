@@ -4,7 +4,7 @@ ngApp.config(['$stateProvider', function ($stateProvider) {
     $stateProvider.state('home', {
         url: '/home',
         templateUrl: "templates/home.html",
-        controller: 'myCtrl',
+        controller: 'homeCtrl',
     }).state('memberList', {
         url: '/memberList',
         templateUrl: "templates/members.html",
