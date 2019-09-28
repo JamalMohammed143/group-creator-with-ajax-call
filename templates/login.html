@@ -1,0 +1,81 @@
+<style>
+    .login-page-cont {
+        position: relative;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .auth-logo {
+        text-align: center;
+    }
+
+    .auth-logo img {
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    .login-form {
+        background-color: #fff;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        width: 400px;
+        height: 400px;
+        padding: 15px 50px;
+        text-align: center;
+    }
+
+    .auth-logo,
+    .login-form .form-group {
+        margin-bottom: 16px;
+    }
+
+    .login-form .form-group .input-label {
+        color: #008498;
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 3px;
+    }
+
+    .login-form .form-group .form-control {
+        height: 40px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .login-form .form-group .form-control::placeholder {
+        color: #e4e4e4;
+    }
+
+    .login-form .btn-block {
+        width: 65%;
+        margin: 0 auto;
+        height: 40px;
+    }
+</style>
+<div class="login-page-cont">
+    <div class="login-form">
+        <form name="loginForm" ng-submit="validatingAuthentication()">
+            <p class="auth-logo">
+                <img src="https://www.svgrepo.com/show/4326/house-key.svg" alt="Icon" />
+            </p>
+            <div class="form-group">
+                <label class="input-label" for="inputEmail">Email</label>
+                <input type="email" class="form-control" name="email" id="inputEmail" placeholder="example@gmail.com"
+                    ng-model="loginObj.email" />
+            </div>
+            <div class="form-group">
+                <label class="input-label" for="inputPassword">Password</label>
+                <input type="password" class="form-control" name="password" id="inputPassword" placeholder="example@123"
+                    ng-model="loginObj.password" />
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" name="remember" id="inputRemember"
+                    ng-model="loginObj.rememberIs" />
+                <label class="form-check-label" for="inputRemember">Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,7 +1,11 @@
 var ngApp = angular.module('myApp', ['ui.router']);
 
 ngApp.config(['$stateProvider', function ($stateProvider) {
-    $stateProvider.state('home', {
+    $stateProvider.state('login', {
+        url: '/login',
+        templateUrl: "templates/login.html",
+        controller: 'myCtrl',
+    }).state('home', {
         url: '/home',
         templateUrl: "templates/home.html",
         controller: 'homeCtrl',
@@ -13,5 +17,5 @@ ngApp.config(['$stateProvider', function ($stateProvider) {
 }]);
 
 ngApp.config(['$urlRouterProvider', function ($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/login');
 }]);
