@@ -2,80 +2,252 @@
     .login-page-cont {
         position: relative;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 100%;
+    }
+
+    .forms-cont {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        perspective: 1000px;
+        -webkit-perspective: 1000px;
+    }
+
+    .register-form,
+    .login-form {
+        background-color: #fff;
+        box-shadow: -8px 5px 15px -8px rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        padding: 15px 50px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: rotateY(0);
+        -webkit-transform: rotateY(0);
+        transition: all 1s cubic-bezier(0.3, 0.49, 0.51, 1.23);
+        -webkit-transition: all 1s cubic-bezier(0.3, 0.49, 0.51, 1.23);
+        z-index: 1;
+    }
+
+    .register-form {
+        transform: rotateY(-180deg);
+        -webkit-transform: rotateY(-180deg);
+        z-index: 0;
+    }
+
+    .forms-cont.signin .register-form {
+        transform: rotateY(0);
+        -webkit-transform: rotateY(0);
+        z-index: 1;
+    }
+
+    .forms-cont.signin .login-form {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        z-index: 0;
+    }
+
+    .register-form form,
+    .login-form form {
+        position: absolute;
+        left: 50%;
+        top: 48%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        min-width: 80%;
     }
 
     .auth-logo {
         text-align: center;
+        margin-bottom: 35px;
     }
 
     .auth-logo img {
-        max-width: 80px;
-        max-height: 80px;
+        max-width: 70px;
+        max-height: 70px;
+        user-select: none;
+        -webkit-user-drag: none;
     }
 
-    .login-form {
-        background-color: #fff;
-        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        border-radius: 50%;
-        width: 400px;
-        height: 400px;
-        padding: 15px 50px;
-        text-align: center;
+    .form-inputs .form-group {
+        margin-bottom: 25px;
     }
 
-    .auth-logo,
-    .login-form .form-group {
-        margin-bottom: 16px;
-    }
+    /* .form-inputs .form-group.form-check {
+        margin-bottom: 22px;
+    } */
 
-    .login-form .form-group .input-label {
+    .form-inputs .form-group .input-label {
         color: #008498;
         font-weight: 600;
         font-size: 16px;
         margin-bottom: 3px;
     }
 
-    .login-form .form-group .form-control {
+    .form-inputs .form-group .form-control {
         height: 40px;
         font-size: 16px;
         font-weight: 600;
+        border-radius: 25px;
+        line-height: 40px;
+        text-align: center;
     }
 
-    .login-form .form-group .form-control::placeholder {
-        color: #e4e4e4;
+    .form-inputs .form-group .form-control::placeholder {
+        color: #c5c5c5;
+        font-weight: 300;
     }
 
-    .login-form .btn-block {
+    .remember-check-box {
+        color: #808080;
+        display: inline-block;
+        position: relative;
+        padding-left: 20px;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .remember-check-box .form-check-input {
+        margin: 0;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+
+    .remember-check-box label {
+        cursor: pointer;
+    }
+
+    .remember-check-box .check-box {
+        position: absolute;
+        border: 3px solid #008498;
+        border-radius: 5px;
+        width: 15px;
+        height: 15px;
+        margin: 0;
+        left: 0;
+        top: 5px;
+    }
+
+    .remember-check-box .check-box:before {
+        content: "\f00c";
+        color: #008498;
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        font-size: 12px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+    }
+
+    .remember-check-box .form-check-input[type=checkbox]:checked+.check-box::before {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .form-inputs .btn-block {
+        border-radius: 25px;
         width: 65%;
         margin: 0 auto;
         height: 40px;
     }
+
+    /* .register-form .auth-logo {
+        margin-bottom: 16px;
+    } 
+
+    .register-form .form-inputs .form-group {
+        margin-bottom: 8px;
+    }*/
+
+    .signin-btn {
+        color: #9E9E9E;
+        display: inline-block;
+        position: absolute;
+        padding: 5px;
+        box-shadow: none !important;
+        font-size: 14px;
+        font-weight: 600;
+        top: 50%;
+        left: 100%;
+        transform: translate(10px, -50%);
+        -webkit-transform: translate(10px, -50%);
+    }
+
+    .signin-btn:hover {
+        color: #008498;
+    }
+
+    .signin-btn:active {
+        transform: translate(10px, -50%) scale(0.9);
+        -webkit-transform: translate(10px, -50%) scale(0.9);
+    }
 </style>
 <div class="login-page-cont">
-    <div class="login-form">
-        <form name="loginForm" ng-submit="validatingAuthentication()">
-            <p class="auth-logo">
-                <img src="https://www.svgrepo.com/show/4326/house-key.svg" alt="Icon" />
-            </p>
-            <div class="form-group">
-                <label class="input-label" for="inputEmail">Email</label>
-                <input type="email" class="form-control" name="email" id="inputEmail" placeholder="example@gmail.com"
-                    ng-model="loginObj.email" />
-            </div>
-            <div class="form-group">
-                <label class="input-label" for="inputPassword">Password</label>
-                <input type="password" class="form-control" name="password" id="inputPassword" placeholder="example@123"
-                    ng-model="loginObj.password" />
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" name="remember" id="inputRemember"
-                    ng-model="loginObj.rememberIs" />
-                <label class="form-check-label" for="inputRemember">Remember me</label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
-        </form>
+    <div class="forms-cont" ng-class="{'signin':signInSectionIs}">
+        <div class="login-form">
+            <form class="form-inputs" name="loginForm" ng-submit="logInFormSubmit()" novalidate autocomplete="off">
+                <p class="auth-logo">
+                    <img src="img/auth_icon.svg" alt="Icon" />
+                </p>
+                <div class="form-group">
+                    <label class="input-label" for="inputEmail"><i class="fas fa-user"></i> Email</label>
+                    <input type="email" class="form-control" name="email" id="inputEmail"
+                        placeholder="example@gmail.com" ng-model="loginObj.email" />
+                </div>
+                <div class="form-group">
+                    <label class="input-label" for="inputPassword"><i class="fas fa-key"></i> Password</label>
+                    <input type="password" class="form-control" name="password" id="inputPassword"
+                        placeholder="example@123" ng-model="loginObj.password" />
+                </div>
+                <div class="form-group form-check">
+                    <p class="remember-check-box">
+                        <input type="checkbox" class="form-check-input" name="remember" id="inputRemember"
+                            ng-model="loginObj.rememberIs" />
+                        <label class="check-box fas fa-check" for="inputRemember"></label>
+                        <label class="form-check-label" for="inputRemember">Remember me</label>
+                    </p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+        </div>
+
+        <div class="register-form">
+            <form class="form-inputs" name="signInForm" ng-submit="signInFormSubmit()" novalidate autocomplete="off">
+                <p class="auth-logo">
+                    <img src="img/signin_icon.svg" alt="Icon" />
+                </p>
+                <div class="form-group">
+                    <label class="input-label" for="signInEmail"><i class="fas fa-user"></i> Email*</label>
+                    <input type="email" class="form-control" name="signEmail" id="signInEmail"
+                        placeholder="example@gmail.com" ng-model="signInObj.email" />
+                </div>
+                <div class="form-group">
+                    <label class="input-label" for="crtePassword"><i class="fas fa-key"></i> Create Password*</label>
+                    <input type="password" class="form-control" name="crtePass" id="crtePassword"
+                        placeholder="example@123" ng-model="signInObj.crtePassword" />
+                </div>
+                <div class="form-group">
+                    <label class="input-label" for="confirmPassword"><i class="fas fa-check-double"></i> Confirm
+                        Password*</label>
+                    <input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
+                        placeholder="example@123" ng-model="signInObj.confirmPassword" />
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+        </div>
+
+        <button type="button" class="btn signin-btn" ng-click="goToSignInSection()">
+            <span ng-bind="signInSectionIs ? 'Login' : 'Sign-in'"></span> <i class="fas fa-hand-point-right"></i>
+        </button>
     </div>
 </div>

@@ -54,6 +54,16 @@
     <nav class="navbar navbar-expand-lg navbar-dark my-navbar" ng-if="mainHeaderShownIs">
         <a class="navbar-brand" href="#" title="Logo">
             <img src="img/logo.png" alt="Jamal" /> Group Divider</a>
+
+        <div class="dropdown">
+            <button class="btn dropdown-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" ng-bind="userLoginEmail"></button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">View Profile</a>
+                <a class="dropdown-item" href="#">Change Password</a>
+                <a class="dropdown-item" href="#" ng-click="logoutUser()">Logout</a>
+            </div>
+        </div>
     </nav>
 
     <div class="main-container" ui-view></div>
@@ -61,6 +71,7 @@
     <script type="text/javascript" src="plugins/bootstrap-4.3.1/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="plugins/angular-1.7.8/angular.min.js"></script>
     <script type="text/javascript" src="plugins/angular-1.7.8/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
     <script type="text/javascript" src="plugins/bootstrap-4.3.1/js/popper.min.js"></script>
     <script type="text/javascript" src="plugins/bootstrap-4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="plugins/croppie-master/croppie.min.js"></script>

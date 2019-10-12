@@ -56,6 +56,10 @@ body {
 }
 
 /*  */
+.my-navbar {
+    justify-content: space-between;
+}
+
 .my-navbar .navbar-brand {
     padding: 0;
 }

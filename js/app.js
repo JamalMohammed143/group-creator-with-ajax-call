@@ -1,4 +1,4 @@
-var ngApp = angular.module('myApp', ['ui.router']);
+var ngApp = angular.module('myApp', ['ui.router', 'ngStorage']);
 
 ngApp.config(['$stateProvider', function ($stateProvider) {
     $stateProvider.state('login', {

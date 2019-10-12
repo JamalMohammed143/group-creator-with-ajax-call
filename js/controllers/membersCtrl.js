@@ -13,6 +13,8 @@ ngApp.controller('membersCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$
         "department": ""
     };
 
+    $scope.loginCheck();
+
     $scope.goBackFun = function () {
         $window.history.back();
     };

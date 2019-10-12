@@ -11,6 +11,8 @@ ngApp.controller('homeCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$loc
     $scope.membersCount = 5;
     $scope.groupsCount = 1;
 
+    $scope.loginCheck();
+
     $scope.goBackFun = function () {
         $window.history.back();
     };
